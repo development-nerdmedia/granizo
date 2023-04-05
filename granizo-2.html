@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Granizo</title>
+  </head>
+  <body style="background-color: grey; overflow: hidden">
+    <style>
+      #granizo {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background-color: grey;
+      }
+      .granizo {
+        position: absolute;
+        display: block;
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        animation: granizo 1s linear infinite;
+      }
+      @keyframes granizo {
+        0% {
+          transform: translateY(-10px) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+    </style>
+    <div id="granizo"></div>
+    <script>
+      setInterval(function () {
+        var granizo = document.createElement("span");
+        granizo.classList.add("granizo");
+        granizo.style.left = Math.random() * 100 + "%";
+        document.getElementById("granizo").appendChild(granizo);
+        setTimeout(function () {
+          granizo.remove();
+        }, 1000);
+      }, 50);
+    </script>
+  </body>
+</html>
